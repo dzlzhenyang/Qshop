@@ -4,10 +4,13 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.http import JsonResponse
 
 
+# 校验功能
 def login_valid(func):
     def inner(request, *args, **kwargs):
+        # 使用cookie和session
         cookie_username = request.COOKIES.get("username")
         session_username = request.session.get("username")
+        # 判断三者是否相等
         if cookie_username and session_username and cookie_username == session_username:
             return func(request, *args, **kwargs)
         else:
@@ -60,6 +63,7 @@ def register(request):
         user.password = set_password(password)
         user.email = email
         user.save()
+        # 注册成功，跳转到登录界面
         return HttpResponseRedirect('/Buyer/login')
     return render(request, 'buyer/register.html', locals())
 

@@ -140,6 +140,7 @@ from Buyer.models import *
 
 
 # @login_valid
+# 支付功能
 def pay_order(request):
     goods_id = request.GET.get("goods_id")
     goods_count = request.GET.get("goods_count")
@@ -173,6 +174,7 @@ from alipay import AliPay
 from Qshop.settings import alipay_private_key_string, alipay_public_key_string
 
 
+# 使用阿里pay
 def alipay_order(request):
     order_number = request.GET.get("order_number")
     order_total = request.GET.get("order_total")
@@ -197,6 +199,7 @@ def alipay_order(request):
     return HttpResponseRedirect(result)
 
 
+# 返回支付结果
 def alipay_result(request):
     out_trade_no = request.GET.get("out_trade_no")
     if out_trade_no:
@@ -206,10 +209,11 @@ def alipay_result(request):
     return render(request, "buyer/alipay_result.html", locals())
 
 
-# 9月16
+
 # 添加到购物车
 @login_valid
 def add_cart(request):
+    # 返回的固定格式
     result = {
         "code": 200,
         "data": ""
@@ -237,6 +241,7 @@ def add_cart(request):
     return JsonResponse(result)
 
 
+# 购物车
 def cart(request):
     user_id = request.COOKIES.get("user_id")
     goods = Cart.objects.filter(cart_user=int(user_id)).order_by("-id")

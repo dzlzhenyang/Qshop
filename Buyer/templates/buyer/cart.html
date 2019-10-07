@@ -1,0 +1,78 @@
+{% extends 'buyer/base.html' %}
+
+{% block title %}
+    购物车
+{% endblock %}
+{% block content %}
+
+    <div class="total_count">全部商品<em>{{ goods_count }}</em>件</div>
+
+    <ul class="cart_list_th clearfix">
+        <li class="col01">商品名称</li>
+        <li class="col02">商品单位</li>
+        <li class="col03">商品价格</li>
+        <li class="col04">数量</li>
+        <li class="col05">小计</li>
+        <li class="col06">操作</li>
+    </ul>
+
+    {% for g in goods %}
+        <ul class="cart_list_td clearfix">
+            <li class="col01"><input type="checkbox" class="checkbox" name="check_{{ g.goods_id }}"></li>
+            <li class="col02"><img src="/static/{{ g.goods_picture }}"></li>
+            <li class="col03">{{ g.goods_name }}<br><em>{{ g.goods_price }}元/500g</em></li>
+            <li class="col04">500g</li>
+            <li class="col05">{{ g.goods_price }}元</li>
+            <li class="col06">
+                <div class="num_add">
+                    <a href="javascript:;" class="add fl" id="add" onclick="add()">+</a>
+                    <input type="text" class="num_show fl" value="{{ g.goods_count }}" name="goods_count_{{ g.id }}">
+                    <a href="javascript:;" class="minus fl" id="reduce" onclick="reduce()">-</a>
+                </div>
+            </li>
+            <li class="col07">{{ g.goods_total_price }}元</li>
+            <li class="col08"><a href="javascript:;">删除</a></li>
+        </ul>
+    {% endfor %}
+
+    <ul class="settlements">
+        <li class="col01"><input type="checkbox" id="all_check" name=""></li>
+        <li class="col02">全选</li>
+        <li class="col03">合计(不含运费)：<span>¥</span><em></em><br>共计<b>{{ goods_count }}</b>件商品</li>
+        <li class="col04"><a href="/Buyer/alipay_order/">去结算</a></li>
+    </ul>
+
+{% endblock %}
+
+{% block script %}
+
+    <script>
+        $("#all_check").click(
+            function () {
+                //this.checked:true代表选中，false代表未选中
+                if (this.checked) {
+                    //prop 修改的方法，将checked的值改成true
+                    $(".checkbox").prop("checked", true)
+                } else {
+                    //将checked的值改成false
+                    $(".checkbox").prop("checked", false)
+                }
+            }
+        );
+        //checkbox是一个循环，each将其中的值展开
+        $(".checkbox").each(
+            function () {
+                $(this).click(
+                    function () {
+                        if (!this.checked) {
+                            //如果有一个选中，将全选的checked改为false
+                            $("#all_check").prop("checked", false)
+                        }
+                    }
+                )
+            }
+        )
+    </script>
+
+
+{% endblock %}

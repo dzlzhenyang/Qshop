@@ -1,0 +1,14 @@
+{% extends "buyer/base.html" %}
+
+{% block title %}
+    支付宝支付返回结果
+{% endblock %}
+{% block content %}
+    支付成功！
+    {% for key,value in request.GET.items %}
+        <table>
+            <th>{{ key }}:</th>
+            <td>{{ value }}</td>
+        </table>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'seller/base.html' %}
+{% block title %}商品列表{% endblock %}
+
+{% block label %}
+    {% ifequal status '1' %}
+        在售商品
+        <a href="/Seller/goods_add" style="float: right" class="btn btn-primary">添加商品</a>
+    {% else %}
+        下架商品
+    {% endifequal %}
+{% endblock %}
+{% block content %}
+    <table class="table">
+        <thread>
+            <tr>
+                <th>商品编号</th>
+                <th>商品名称</th>
+                <th>商品价格</th>
+                <th>商品数量</th>
+                <th>商品产地</th>
+                <th>商品保质期</th>
+                <th>操作</th>
+            </tr>
+        </thread>
+        <thread>
+            {% for goods in goods_list %}
+                <tr>
+                    <td>{{ goods.goods_number }}</td>
+                    <td>{{ goods.goods_name }}</td>
+                    <td>{{ goods.goods_price }}元</td>
+                    <td>{{ goods.goods_count }}</td>
+                    <td>{{ goods.goods_location }}</td>
+                    <td>{{ goods.goods_safe_date }}天</td>
+                    <td>
+                        <button type="button" class="btn btn-primary">修改</button>
+                        {% ifequal goods.goods_status 1 %}
+                            <a href="/goods_status/down/{{ goods.id }}/" type="button" class="btn btn-warning">下架</a>
+                        {% else %}
+                            <a href="/goods_status/up/{{ goods.id }}/" type="button" class="btn btn-warning">上架</a>
+                        {% endifequal %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </thread>
+    </table>
+    <ul class="pagination" style="margin-right: 100px; float: right">
+        {% for p in all_goods.page_range %}
+            <li class="paginate_button page-item previous">
+                {% ifequal status '1' %}
+                    <a href="/Seller/goods_list/{{ p }}/1" class="page-link">{{ p }}</a>
+                {% else %}
+                    <a href="/Seller/goods_list/{{ p }}/0" class="page-link">{{ p }}</a>
+                {% endifequal %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

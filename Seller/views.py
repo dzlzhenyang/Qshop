@@ -176,7 +176,7 @@ def goods_add(request):
     return render(request, 'seller/goods_add.html', locals())
 
 
-# 9月17号
+
 import json
 import requests
 from Qshop.settings import DING_URL

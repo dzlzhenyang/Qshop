@@ -1,0 +1,70 @@
+{% extends 'seller/base.html' %}
+{% block title %}
+    订单列表
+{% endblock %}
+
+{% block label %}
+    {% ifequal status '0' %}
+        未支付订单
+    {% endifequal %}
+    {% ifequal status '1' %}
+        已支付订单
+    {% endifequal %}
+    {% ifequal status '2' %}
+        已发货订单
+    {% endifequal %}
+    {% ifequal status '3' %}
+        已完成订单
+    {% endifequal %}
+{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <thread>
+            <tr>
+                <th>订单编号</th>
+                <th>商品名称</th>
+                <th>商品数量</th>
+                <th>收货人地址</th>
+                <th>收货人电话</th>
+                <th>商品价格</th>
+                <th>操作</th>
+            </tr>
+        </thread>
+        <thread>
+            {% for order in order_list %}
+                <tr>
+                    <td>{{ order.order_id.order_number }}</td>
+                    <td>{{ order.goods_name }}</td>
+                    <td>{{ order.goods_count }}</td>
+                    <td>河南省郑州市</td>
+                    <td>{{ order.store_id.phone_number }}</td>
+                    <td>{{ order.goods_total_price }}元</td>
+                    <td>
+                        {% ifequal order.order_status 0 %}
+                            <button type="button" class="btn btn-primary">提醒付款</button>
+                        {% endifequal %}
+                        {% ifequal order.order_status 1 %}
+                            <button type="button" class="btn btn-primary">修改订单</button>
+                            <button type="button" class="btn btn-primary">收款发货</button>
+                        {% endifequal %}
+                        {% ifequal order.order_status 2 %}
+                            <button type="button" class="btn btn-primary">提醒确认收货</button>
+                        {% endifequal %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </thread>
+    </table>
+    <ul class="pagination" style="margin-right: 100px; float: right">
+        {% for p in all_goods.page_range %}
+            <li class="paginate_button page-item previous">
+                {% ifequal status '1' %}
+                    <a href="/Seller/goods_list/{{ p }}/1" class="page-link">{{ p }}</a>
+                {% else %}
+                    <a href="/Seller/goods_list/{{ p }}/0" class="page-link">{{ p }}</a>
+                {% endifequal %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

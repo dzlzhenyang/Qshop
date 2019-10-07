@@ -1,0 +1,135 @@
+{% extends 'buyer/base.html' %}
+
+{% block title %}商品详情页{% endblock %}
+{% block content %}
+    <div class="goods_detail_con clearfix">
+        <div class="goods_detail_pic fl"><img style="width: 100%; height: 100%" src="/static/{{ goods.goods_picture }}">
+        </div>
+
+        <div class="goods_detail_list fr">
+            <h3>{{ goods.goods_name }}</h3>
+            <p>{{ goods.goods_details }}</p>
+            <div class="prize_bar">
+                <span class="show_pirze">¥<em id="price">{{ goods.goods_price }}</em></span>
+                <span class="show_unit">单  位：500g</span>
+            </div>
+            <div class="goods_num clearfix">
+                <div class="num_name fl">数 量：</div>
+                <div class="num_add fl">
+                    <input type="text" id="number" class="num_show fl" value="1">
+                    <a id="add" href="javascript:;" class="add fr">+</a>
+                    <a id="reduce" href="javascript:;" class="minus fr">-</a>
+                </div>
+            </div>
+            <div class="total">总价：<em id="total">{{ goods.goods_price }}</em><em>元</em></div>
+            <div class="operate_btn">
+                <a id="by_now" href="javascript:;" class="buy_btn">立即购买</a>
+                <a href="javascript:;" class="add_cart" id="{{ goods.id }}" onclick="add_cart(this)">加入购物车</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main_wrap clearfix">
+        <div class="l_wrap fl clearfix">
+            <div class="new_goods">
+                <h3>新品推荐</h3>
+                <ul>
+                    <li>
+                        <a href="#"><img src="images/goods/goods001.jpg"></a>
+                        <h4><a href="#">进口柠檬</a></h4>
+                        <div class="prize">￥3.90</div>
+                    </li>
+                    <li>
+                        <a href="#"><img src="images/goods/goods002.jpg"></a>
+                        <h4><a href="#">玫瑰香葡萄</a></h4>
+                        <div class="prize">￥16.80</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="r_wrap fr clearfix">
+            <ul class="detail_tab clearfix">
+                <li class="active">商品介绍</li>
+                <li>评论</li>
+            </ul>
+
+            <div class="tab_content">
+                <dl>
+                    <dt>商品详情：</dt>
+                    <dd>
+                    </dd>
+                </dl>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+
+    <script>
+        $("#add").click(
+            function () {
+                value = parseInt($("#number").val());
+                price = parseFloat($("#price").text());
+                value = value + 1;
+                $("#number").val(value);
+                total = price * value;
+                {#修正js计算错误#}
+                total = parseFloat(total.toFixed(4));
+                $("#total").text(total);
+            }
+        );
+        $("#reduce").click(
+            function () {
+                value = parseInt($("#number").val());
+                price = parseFloat($("#price").text());
+                if (value > 1) {
+                    value = value - 1;
+                    $("#number").val(value);
+                } else {
+                    $("#number").val(1);
+                }
+                total = value * price;
+                total = parseFloat(total.toFixed(4));
+                $("#total").text(total)
+            }
+        );
+        $("#by_now").click(
+            function () {
+
+                url = "/Buyer/pay_order/?goods_id={{ goods.id }}&goods_count=" + $("#number").val();
+                window.location.href = url;
+            }
+        )
+    </script>
+
+    <script>
+        function add_cart(obj) {
+            var goods_id = obj.id;
+            var csrf_token = '{{ csrf_token }}';
+            var goods_count = $("#number").val();
+            var send_data = {
+                "goods_id": goods_id,
+                "goods_count": goods_count,
+                "csrfmiddlewaretoken": csrf_token
+            };
+            console.log(send_data);
+            $.ajax(
+                {
+                    url: '/Buyer/add_cart/',
+                    type: "POST",
+                    data: send_data,
+                    success: function (data) {
+                        alert(data["data"])
+                    },
+                    error: function (error) {
+                        console.log(error)
+                    }
+                }
+            )
+        }
+    </script>
+
+{% endblock %}

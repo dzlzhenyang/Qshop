@@ -68,6 +68,7 @@ def register(request):
     return render(request, 'buyer/register.html', locals())
 
 
+# 首页
 def index(request):
     # 查看所有类型
     all_goods_type = GoodsType.objects.all()
@@ -81,10 +82,11 @@ def index(request):
     return render(request, 'buyer/index.html', locals())
 
 
+# 商品列表页
 def goods_list(request):
     # 获取请求的类型
     request_type = request.GET.get("type")
-    # 获取关键字
+    # 获取关键字 设置关键字
     keywords = request.GET.get("keywords")
     # 定义返回的结果
     goods_list = []
@@ -112,6 +114,7 @@ def goods_list(request):
     return render(request, 'buyer/goods_list.html', locals())
 
 
+# 商品详情页
 def goods_details(request, id):
     goods = Goods.objects.get(id=int(id))
     return render(request, 'buyer/goods_details.html', locals())
@@ -135,7 +138,7 @@ import time
 from Buyer.models import *
 
 
-# 9月11
+
 # @login_valid
 def pay_order(request):
     goods_id = request.GET.get("goods_id")

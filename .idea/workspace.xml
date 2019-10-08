@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fed997be-31ce-41a1-9a6e-e4bb27d0c64c" name="Default Changelist" comment="卖家商品列表添加分页功能">
-      <change afterPath="$PROJECT_DIR$/Buyer/templates/buyer/user_info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CeleryTask/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CeleryTask/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CeleryTask/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CeleryTask/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CeleryTask/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CeleryTask/tasks.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CeleryTask/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CeleryTask/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Seller/templates/seller/goods_add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Seller/templates/seller/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Seller/templates/seller/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Seller/templates/seller/order_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Seller/templates/seller/personal_info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Seller/templates/seller/register.html" afterDir="false" />
+    <list default="true" id="fed997be-31ce-41a1-9a6e-e4bb27d0c64c" name="Default Changelist" comment="完善项目">
+      <change afterPath="$PROJECT_DIR$/common_code/celerybeat-schedule.bak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common_code/celerybeat-schedule.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common_code/celerybeat-schedule.dir" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common_code/chrome_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common_code/ding_message.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common_code/itertools_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common_code/log_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common_code/send_email.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common_code/send_message.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,8 +58,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Seller/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
+            <state relative-caret-position="324">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
                 <element signature="e#293#675#0" />
@@ -192,9 +187,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="171" />
-    <option name="width" value="1220" />
-    <option name="height" value="860" />
+    <option name="x" value="146" />
+    <option name="y" value="19" />
+    <option name="width" value="1340" />
+    <option name="height" value="859" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -202,27 +198,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-              <item name="Buyer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Qshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Qshop" type="462c0819:PsiDirectoryNode" />
-              <item name="Seller" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -232,7 +208,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="E:/PytnonFrameWork/DjangoFrameWork/Qshop" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -435,7 +411,9 @@
       <workItem from="1569635928005" duration="1332000" />
       <workItem from="1569717270371" duration="621000" />
       <workItem from="1570014353866" duration="5415000" />
-      <workItem from="1570416337229" duration="10098000" />
+      <workItem from="1570416337229" duration="10780000" />
+      <workItem from="1570457922198" duration="201000" />
+      <workItem from="1570524728182" duration="239000" />
     </task>
     <task id="LOCAL-00001" summary="注册使用手机验证">
       <created>1568732313205</created>
@@ -486,17 +464,32 @@
       <option name="project" value="LOCAL" />
       <updated>1570456899962</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="其他功能的完善">
+      <created>1570457011991</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1570457011991</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196732000" />
+    <option name="totallyTimeSpent" value="197854000" />
+  </component>
+  <component name="TodoView" selected-index="4">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17159383" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17544988" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -510,7 +503,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4993447" weight="0.27633378" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4993447" visible="true" weight="0.27590847" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.14460154" side_tool="true" weight="0.2153432" />
       <window_info anchor="bottom" id="Python Console" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -531,7 +524,8 @@
     <MESSAGE value="购物车和支付功能" />
     <MESSAGE value="商品列表页ajax的使用" />
     <MESSAGE value="卖家商品列表添加分页功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="卖家商品列表添加分页功能" />
+    <MESSAGE value="其他功能的完善" />
+    <option name="LAST_COMMIT_MESSAGE" value="其他功能的完善" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Qshop$ding_message.coverage" NAME="ding_message Coverage Results" MODIFIED="1568703845319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -554,13 +548,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/Program Files/Anaconda3/envs/DjangoPath/Lib/json/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="185" lean-forward="true" selection-start-line="185" selection-end-line="185" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/error.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -661,13 +648,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/log_test.html" />
-    <entry file="file://$PROJECT_DIR$/log_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/log_test.py" />
     <entry file="file://$PROJECT_DIR$/Seller/templates/seller/personal_info.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -675,16 +656,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chrome_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#6#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/chrome_test.py" />
     <entry file="file://$PROJECT_DIR$/../模板/天天生鲜水果蔬菜商城网站静态模板/list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -713,12 +685,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/celerybeat-schedule.dir">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/celerybeat-schedule.bak">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/celerybeat-schedule.dir" />
+    <entry file="file://$PROJECT_DIR$/celerybeat-schedule.bak" />
     <entry file="file://$PROJECT_DIR$/Seller/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -811,13 +779,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/itertools_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="45" column="25" lean-forward="true" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/itertools_test.py" />
     <entry file="file://$PROJECT_DIR$/Qshop/wsgi.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -937,10 +899,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Seller/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
+        <state relative-caret-position="324">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
             <element signature="e#293#675#0" />
